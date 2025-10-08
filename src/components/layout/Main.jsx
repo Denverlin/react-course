@@ -9,7 +9,7 @@ function Main() {
 
     function select(index) {
 
-        if (selected != index) {
+        if (selected !== index) {
             setSelected((selected) => selected = index)
         }
     }
