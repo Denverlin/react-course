@@ -11,18 +11,19 @@ createRoot(document.getElementById('root')).render(
 
         {restaurants.map((restaurant) => (
             <div key={restaurant.id}>
-                <h1>{restaurant.name}</h1>
+                <h2>{restaurant.name}</h2>
                 <h3>Меню</h3>
-                {restaurant.menu.map((item) => (
-                    <ul key={item.id}>
-                        <li>{item.name}</li>
-                    </ul>))}
+                <ul>
+                    {restaurant.menu.map((item) => (
+                        <li key={item.id}>{item.name}</li>
+                    ))}
+                </ul>
                 <h3>Отзывы</h3>
-                {restaurant.reviews.map((item) => (
-                    <ul key={item.id}>
-                        <li>{item.text}</li>
-                    </ul>
-                ))}
+                <ul>
+                    {restaurant.reviews.map((item) => (
+                        <li key={item.id}>{item.text}</li>
+                    ))}
+                </ul>
             </div>
         ))
         }
