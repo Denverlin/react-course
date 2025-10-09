@@ -6,16 +6,18 @@ function InfoCard({selectedRestaurant}) {
         <div>
             <h3>Меню</h3>
             <ul>
-                {selectedRestaurant.menu.map((item) => (
-                    <li key={item.id}>{item.name}<Counter/></li>
-                ))}
+                {selectedRestaurant.menu.length === 0 ?
+                    <div><h2>Ресторан закрыт</h2></div> : selectedRestaurant.menu.map((item) => (
+                        <li key={item.id}>{item.name}<Counter/></li>
+                    ))}
             </ul>
 
             <h3>Отзывы</h3>
             <ul>
-                {selectedRestaurant.reviews.map((item) => (
-                    <li key={item.id}>{item.text}</li>
-                ))}
+                {selectedRestaurant.reviews.length === 0 ?
+                    <div><h2>Отзывов нет</h2></div> : selectedRestaurant.reviews.map((item) => (
+                        <li key={item.id}>{item.text}</li>
+                    ))}
             </ul>
         </div>
     );
