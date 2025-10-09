@@ -1,19 +1,19 @@
-import React from 'react';
-import {restaurants} from "./data/mock.js"
+import Counter from "./Counter.jsx";
 
-function InfoCard({restaurant}) {
-   
+function InfoCard({selectedRestaurant}) {
+
     return (
         <div>
             <h3>Меню</h3>
             <ul>
-                {restaurants[restaurant].menu.map((item) => (
-                    <li key={item.id}>{item.name}</li>
+                {selectedRestaurant.menu.map((item) => (
+                    <li key={item.id}>{item.name}<Counter/></li>
                 ))}
             </ul>
+
             <h3>Отзывы</h3>
             <ul>
-                {restaurants[restaurant].reviews.map((item) => (
+                {selectedRestaurant.reviews.map((item) => (
                     <li key={item.id}>{item.text}</li>
                 ))}
             </ul>

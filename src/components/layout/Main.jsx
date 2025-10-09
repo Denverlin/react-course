@@ -5,27 +5,33 @@ import InfoCard from "../InfoCard.jsx"
 
 function Main() {
 
-    const [selected, setSelected] = useState(0)
+    const [selectedRestaurantId, setSelectedRestaurantId] = useState(restaurants[0].id)
+    const selectedRestaurant = restaurants.find(({id}) => id === selectedRestaurantId)
 
-    function select(index) {
 
-        if (selected !== index) {
-            setSelected((selected) => selected = index)
+    function selectRestaurant(id) {
+
+        if (selectedRestaurantId !== id) {
+            setSelectedRestaurantId(id)
         }
     }
 
     return (
-        <div className={"main"}>
-            <div className={"list"}>
-                {restaurants.map((restaurant, index) => (
-                    <div className={"list__item"} onClick={() => select(index)} key={restaurant.id}>
-                        <h2>{restaurant.name}</h2>
+        <>
+            {restaurants.length === 0 ? <div className={"main"}><h2>Все рестораны закрыты</h2></div> :
+                <div className={"main"}>
+                    <div className={"list"}>
+                        {restaurants.map((restaurant) => (
+                            <div className={"list__item"} onClick={() => selectRestaurant(restaurant.id)}
+                                 key={restaurant.id}>
+                                <h2>{restaurant.name}</h2>
+                            </div>
+                        ))
+                        }
                     </div>
-                ))
-                }
-            </div>
-            <InfoCard restaurant={selected}></InfoCard>
-        </div>
+                    <InfoCard selectedRestaurant={selectedRestaurant}></InfoCard>
+                </div>
+            }</>
     );
 }
 
