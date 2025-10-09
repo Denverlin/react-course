@@ -6,13 +6,13 @@ function Counter() {
     const [count, setCount] = useState(0)
 
     function incCount() {
-        if (count != 5) {
+        if (count !== 5) {
             setCount((count) => count + 1)
         }
     }
 
     function decCount() {
-        if (count != 0) {
+        if (count !== 0) {
             setCount(count => count - 1)
         }
     }
