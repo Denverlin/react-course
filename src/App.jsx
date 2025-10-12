@@ -1,16 +1,16 @@
-import Header from "./components/layout/Header.jsx";
-import Main from "./components/layout/Main.jsx";
-import Footer from "./components/layout/Footer.jsx";
+
+import RestaurantsPage from "./components/layout/RestaurantsPage.jsx";
 import "./components/styles/App.css"
+import Layout from "./components/layout/Layout.jsx";
 
 function App() {
 
 
     return (
         <div className={"container"}>
-            <Header></Header>
-            <Main></Main>
-            <Footer></Footer>
+        <Layout>
+            <RestaurantsPage/>
+        </Layout>
         </div>
     )
 }

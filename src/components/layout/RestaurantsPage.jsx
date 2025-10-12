@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import {restaurants} from "../data/mock.js"
 import "../styles/Main.css"
 import InfoCard from "../InfoCard.jsx"
+import Button from "../ui/Button.jsx";
 
-function Main() {
+function RestaurantsPage() {
 
     const [selectedRestaurantId, setSelectedRestaurantId] = useState(restaurants[0].id)
     const selectedRestaurant = restaurants.find(({id}) => id === selectedRestaurantId)
@@ -22,17 +23,15 @@ function Main() {
                 <div className={"main"}>
                     <div className={"list"}>
                         {restaurants.map((restaurant) => (
-                            <div className={"list__item"} onClick={() => selectRestaurant(restaurant.id)}
-                                 key={restaurant.id}>
-                                <h2>{restaurant.name}</h2>
-                            </div>
+                            <Button className={"list__item"} onclick={() => selectRestaurant(restaurant.id)}
+                                 key={restaurant.id} text={restaurant.name}/>
                         ))
-                        }
+                              }
                     </div>
-                    <InfoCard selectedRestaurant={selectedRestaurant}></InfoCard>
+                    <InfoCard restaurant={selectedRestaurant}></InfoCard>
                 </div>
             }</>
     );
 }
 
-export default Main;
+export default RestaurantsPage;

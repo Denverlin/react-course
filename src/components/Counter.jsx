@@ -5,13 +5,13 @@ import Button from "./ui/Button.jsx";
 function Counter() {
     const [count, setCount] = useState(0)
 
-    function incCount() {
+    function incrementCount() {
         if (count !== 5) {
-            setCount((count) => count + 1)
+            setCount(count => count + 1)
         }
     }
 
-    function decCount() {
+    function decrementCount() {
         if (count !== 0) {
             setCount(count => count - 1)
         }
@@ -20,9 +20,9 @@ function Counter() {
     return (
 
         <div className={"counter"}>
-            <Button onClick={decCount} text={"-"}></Button>
+            <Button onclick={decrementCount} text={"-"}></Button>
             <div className={"count"}>{count}</div>
-            <Button onClick={incCount} text={"+"}></Button>
+            <Button onclick={incrementCount} text={"+"}></Button>
         </div>
 
     );
