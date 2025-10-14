@@ -1,21 +1,19 @@
 .list {
-    display: flex;
-    gap: 20px;
-    justify-content: space-around;
-
-
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
 }
 
 .list__item:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .main {
-    flex-grow: 1;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 1200px;
-    margin: 20px auto;
+  flex-grow: 1;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 1200px;
+  margin: 20px auto;
 }
