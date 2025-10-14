@@ -4,13 +4,13 @@ import Layout from "./components/layout/Layout.jsx";
 import React from "react";
 
 function App() {
-    return (
-        <div className={"container"}>
-            <Layout>
-                <RestaurantsPage/>
-            </Layout>
-        </div>
-    );
+  return (
+    <div className={"container"}>
+      <Layout>
+        <RestaurantsPage />
+      </Layout>
+    </div>
+  );
 }
 
 export default App;
