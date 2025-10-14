@@ -3,8 +3,7 @@ import {restaurants} from "../data/mock.js";
 import "../styles/Main.css";
 import InfoCard from "../InfoCard.jsx";
 import Button from "../ui/Button.jsx";
-import ReviewForm from "../ReviewForm.jsx";
-import ScrollProgress from "../ScrollProgress.jsx";
+
 
 function RestaurantsPage() {
     const [selectedRestaurantId, setSelectedRestaurantId] = useState(
@@ -22,7 +21,7 @@ function RestaurantsPage() {
 
     return (
         <>
-            
+
             {restaurants.length === 0 ? (
                 <div className={"main"}>
                     <h2>Все рестораны закрыты</h2>

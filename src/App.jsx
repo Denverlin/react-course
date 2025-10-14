@@ -1,7 +1,6 @@
 import RestaurantsPage from "./components/layout/RestaurantsPage.jsx";
 import "./components/styles/App.css";
 import Layout from "./components/layout/Layout.jsx";
-import ScrollProgress from "./components/ScrollProgress.jsx";
 import React from "react";
 
 function App() {

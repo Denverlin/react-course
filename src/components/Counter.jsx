@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./styles/Counter.css";
-import Button from "./ui/Button.jsx";
+
 import CounterUI from "./ui/CounterUI.jsx";
 
 function Counter({count, min, max, step, setCount}) {
