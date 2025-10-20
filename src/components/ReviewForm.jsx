@@ -1,9 +1,8 @@
 import React, { useReducer } from "react";
 import InputText from "./ui/InputText.jsx";
-
 import Button from "./ui/Button.jsx";
 import Counter from "./Counter.jsx";
-import "./styles/ReviewForm.css";
+import styles from "./styles/ReviewForm.module.css"
 import Textarea from "./ui/Textarea.jsx";
 
 const DEFAULT_FORM = {
@@ -63,7 +62,7 @@ function ReviewForm({ restaurantId }) {
   }
 
   return (
-    <form className={"review-form"} onSubmit={(e) => e.preventDefault()}>
+    <form className={styles.reviewForm} onSubmit={(e) => e.preventDefault()}>
       <InputText text={name} setText={setName} />
       <InputText text={address} setText={setAddress} />
       <Textarea text={text} setText={setText} />

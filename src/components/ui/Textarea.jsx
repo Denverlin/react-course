@@ -1,9 +1,9 @@
 import React from "react";
-import "../styles/Textarea.css";
+import styles from "../styles/Textarea.module.css"
 
 function Textarea({ text, setText }) {
   return (
-    <textarea value={text} onChange={(e) => setText(e.target.value)}></textarea>
+    <textarea className={styles.textArea} value={text} onChange={(e) => setText(e.target.value)}></textarea>
   );
 }
 
