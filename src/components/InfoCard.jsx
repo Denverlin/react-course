@@ -1,7 +1,10 @@
 import ReviewForm from "./ReviewForm.jsx";
 import DishCounter from "./DishCounter.jsx";
+import { useContext } from "react";
+import { AuthContext } from "./AuthContext.jsx";
 
 function InfoCard({ restaurant }) {
+  const { isAuth } = useContext(AuthContext);
   return (
     <div>
       <h3>Меню</h3>
@@ -15,7 +18,7 @@ function InfoCard({ restaurant }) {
           {restaurant.menu.map((item) => (
             <li key={item.id}>
               {item.name}
-              <DishCounter />
+              {isAuth && <DishCounter />}
             </li>
           ))}
         </ul>
@@ -34,9 +37,12 @@ function InfoCard({ restaurant }) {
           ))}
         </ul>
       )}
-
-      <h3>Оставить отзыв</h3>
-      <ReviewForm restaurantId={restaurant.id} />
+      {isAuth && (
+        <>
+          <h3>Оставить отзыв</h3>
+          <ReviewForm restaurantId={restaurant.id} />
+        </>
+      )}
     </div>
   );
 }

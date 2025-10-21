@@ -3,9 +3,11 @@ import styles from "../styles/Header.module.css";
 import Button from "../ui/Button.jsx";
 import { ThemeContext } from "../ThemeContext.jsx";
 import classNames from "classnames";
+import { AuthContext } from "../AuthContext.jsx";
 
 function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const { isAuth, authentication, name } = useContext(AuthContext);
   return (
     <div
       className={classNames({
@@ -15,10 +17,18 @@ function Header() {
     >
       <div className={styles.logo}></div>
       <div className={styles.logIn}>
-        <Button text={"Log In"} />
+        <div className={styles.logIn__name}>
+          {isAuth && `Welcome, ${name}!`}
+        </div>
+        <div className={styles.logIn__button}>
+          <Button
+            onclick={authentication}
+            text={isAuth ? "Log Out" : "Log In"}
+          />
+        </div>
       </div>
       <div className={styles.themeButton}>
-        <Button onclick={toggleTheme} text={theme} />
+        <Button onclick={toggleTheme} text={`Current theme : ${theme}`} />
       </div>
     </div>
   );

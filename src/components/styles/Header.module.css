@@ -16,8 +16,16 @@
 .themeButton {
   align-content: center;
 }
-.logo {
-}
 .logIn {
+  display: flex;
+  gap: 20px;
+}
+.logIn__button {
   align-content: center;
+}
+
+.logIn__name {
+  align-content: center;
+}
+.logo {
 }
