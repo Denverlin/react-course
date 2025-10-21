@@ -1,15 +1,15 @@
 import RestaurantsPage from "./components/layout/RestaurantsPage.jsx";
-import styles from "./components/styles/App.module.css"
 import Layout from "./components/layout/Layout.jsx";
 import React from "react";
+import { ThemeProvider } from "./components/ThemeContext.jsx";
 
 function App() {
   return (
-    <div className={styles.container}>
+    <ThemeProvider>
       <Layout>
         <RestaurantsPage />
       </Layout>
-    </div>
+    </ThemeProvider>
   );
 }
 

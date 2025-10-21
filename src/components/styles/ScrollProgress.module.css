@@ -5,3 +5,10 @@
   background: black;
   min-height: 20px;
 }
+.progressBarDark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  min-height: 20px;
+}

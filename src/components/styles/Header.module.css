@@ -1,4 +1,23 @@
 .header {
   min-height: 80px;
   background-color: antiquewhite;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.headerDark {
+  min-height: 80px;
+  background-color: rgba(0, 0, 0, 0.47);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.themeButton {
+  align-content: center;
+}
+.logo {
+}
+.logIn {
+  align-content: center;
 }

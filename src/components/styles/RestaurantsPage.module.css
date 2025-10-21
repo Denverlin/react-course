@@ -17,3 +17,13 @@
   width: 1200px;
   margin: 20px auto;
 }
+.mainDark {
+  color: white;
+  flex-grow: 1;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 1200px;
+  margin: 20px auto;
+}

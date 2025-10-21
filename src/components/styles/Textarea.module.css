@@ -1,3 +1,8 @@
 .textArea {
   min-height: 1000px;
 }
+.textAreaDark {
+  background-color: black;
+  color: white;
+  min-height: 1000px;
+}
