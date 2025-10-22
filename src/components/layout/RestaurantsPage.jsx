@@ -30,7 +30,7 @@ function RestaurantsPage() {
             [styles.mainDark]: theme === "dark",
           })}
         >
-          <h2>Все рестораны закрыты</h2>
+          <h2>All restaurants are closed</h2>
         </div>
       ) : (
         <div

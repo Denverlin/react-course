@@ -4,6 +4,7 @@
   justify-content: space-around;
   background-color: white;
   min-height: 100%;
+  transition: all 2s ease;
 }
 .containerDark {
   display: flex;
@@ -12,4 +13,5 @@
   background-color: black;
   color: white;
   min-height: 100%;
+  transition: all 2s ease;
 }

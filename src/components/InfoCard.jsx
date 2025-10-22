@@ -7,11 +7,11 @@ function InfoCard({ restaurant }) {
   const { isAuth } = useContext(AuthContext);
   return (
     <div>
-      <h3>Меню</h3>
+      <h3>Menu</h3>
 
       {restaurant.menu.length === 0 ? (
         <div>
-          <h2>Ресторан закрыт</h2>
+          <h2>The restaurant is closed</h2>
         </div>
       ) : (
         <ul>
@@ -24,11 +24,11 @@ function InfoCard({ restaurant }) {
         </ul>
       )}
 
-      <h3>Отзывы</h3>
+      <h3>Reviews</h3>
 
       {restaurant.reviews.length === 0 ? (
         <div>
-          <h2>Отзывов нет</h2>
+          <h2>No reviews</h2>
         </div>
       ) : (
         <ul>
@@ -39,7 +39,7 @@ function InfoCard({ restaurant }) {
       )}
       {isAuth && (
         <>
-          <h3>Оставить отзыв</h3>
+          <h3>Leave feedback</h3>
           <ReviewForm restaurantId={restaurant.id} />
         </>
       )}

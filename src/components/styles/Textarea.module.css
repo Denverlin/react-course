@@ -1,8 +1,10 @@
 .textArea {
   min-height: 1000px;
+  transition: all 2s ease;
 }
 .textAreaDark {
   background-color: black;
   color: white;
   min-height: 1000px;
+  transition: all 2s ease;
 }
