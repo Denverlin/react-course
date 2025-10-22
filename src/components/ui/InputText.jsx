@@ -1,9 +1,9 @@
 import React from "react";
-import "../styles/InputText.css";
+import styles from "../styles/InputText.module.css"
 
 function InputText({ text, setText }) {
   return (
-    <input
+    <input className={styles.inputText}
       value={text}
       onChange={(e) => setText(e.target.value)}
       type={"text"}
