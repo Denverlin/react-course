@@ -1,31 +1,29 @@
-import React, {useState} from 'react';
-import "./styles/Counter.css"
-import Button from "./ui/Button.jsx";
+import React from "react";
 
-function Counter() {
-    const [count, setCount] = useState(0)
+import CounterUI from "./ui/CounterUI.jsx";
 
-    function incrementCount() {
-        if (count !== 5) {
-            setCount(count => count + 1)
-        }
+function Counter({ count, min, max, step, setCount }) {
+  function incrementCount() {
+    if (count !== max) {
+      setCount(count + step);
     }
+  }
 
-    function decrementCount() {
-        if (count !== 0) {
-            setCount(count => count - 1)
-        }
+  function decrementCount() {
+    if (count !== min) {
+      setCount(count - step);
     }
+  }
 
-    return (
-
-        <div className={"counter"}>
-            <Button onclick={decrementCount} text={"-"}></Button>
-            <div className={"count"}>{count}</div>
-            <Button onclick={incrementCount} text={"+"}></Button>
-        </div>
-
-    );
+  return (
+    <>
+      <CounterUI
+        count={count}
+        decrement={decrementCount}
+        increment={incrementCount}
+      />
+    </>
+  );
 }
 
 export default Counter;
