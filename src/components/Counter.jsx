@@ -16,13 +16,11 @@ function Counter({ count, min, max, step, setCount }) {
   }
 
   return (
-    <>
-      <CounterUI
-        count={count}
-        decrement={decrementCount}
-        increment={incrementCount}
-      />
-    </>
+    <CounterUI
+      count={count}
+      decrement={decrementCount}
+      increment={incrementCount}
+    />
   );
 }
 

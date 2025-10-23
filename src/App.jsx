@@ -1,15 +1,18 @@
 import RestaurantsPage from "./components/layout/RestaurantsPage.jsx";
-import styles from "./components/styles/App.module.css"
 import Layout from "./components/layout/Layout.jsx";
 import React from "react";
+import { ThemeProvider } from "./components/ThemeContext.jsx";
+import { AuthProvider } from "./components/AuthContext.jsx";
 
 function App() {
   return (
-    <div className={styles.container}>
-      <Layout>
-        <RestaurantsPage />
-      </Layout>
-    </div>
+    <AuthProvider>
+      <ThemeProvider>
+        <Layout>
+          <RestaurantsPage />
+        </Layout>
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
 

@@ -1,10 +1,8 @@
-.textArea {
-  min-height: 1000px;
+.button {
   transition: all 2s ease;
 }
-.textAreaDark {
+.buttonDark {
   background-color: black;
   color: white;
-  min-height: 1000px;
   transition: all 2s ease;
 }
