@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import InputText from "./ui/InputText.jsx";
 import Button from "./ui/Button.jsx";
-import Counter from "./Counter.jsx";
+import GradeCounter from "./GradeCounter.jsx";
 import styles from "./styles/ReviewForm.module.css";
 import Textarea from "./ui/Textarea.jsx";
 
@@ -69,7 +69,13 @@ function ReviewForm({ restaurantId }) {
       <InputText text={address} setText={setAddress} />
       <h4>Comment</h4>
       <Textarea text={text} setText={setText} />
-      <Counter step={1} min={0} max={5} count={grade} setCount={setGrade} />
+      <GradeCounter
+        step={1}
+        min={0}
+        max={5}
+        count={grade}
+        setCount={setGrade}
+      />
       <Button onclick={clearForm} text={"Clear"} />
       <Button onclick={sendForm} text={"Send"} />
     </form>

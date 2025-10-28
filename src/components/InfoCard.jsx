@@ -1,10 +1,15 @@
 import ReviewForm from "./ReviewForm.jsx";
-import DishCounter from "./DishCounter.jsx";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "./AuthContext.jsx";
+import { useSelector } from "react-redux";
+import { selectRestaurantsById } from "./redux/entities/restaurants/slice.jsx";
+import MenuItem from "./MenuItem.jsx";
+import ReviewItem from "./ReviewItem.jsx";
 
-function InfoCard({ restaurant }) {
+function InfoCard({ id }) {
   const { isAuth } = useContext(AuthContext);
+  const restaurant = useSelector((state) => selectRestaurantsById(state, id));
+
   return (
     <div>
       <h3>Menu</h3>
@@ -16,10 +21,7 @@ function InfoCard({ restaurant }) {
       ) : (
         <ul>
           {restaurant.menu.map((item) => (
-            <li key={item.id}>
-              {item.name}
-              {isAuth && <DishCounter />}
-            </li>
+            <MenuItem key={item} item={item} />
           ))}
         </ul>
       )}
@@ -33,14 +35,14 @@ function InfoCard({ restaurant }) {
       ) : (
         <ul>
           {restaurant.reviews.map((item) => (
-            <li key={item.id}>{item.text}</li>
+            <ReviewItem item={item} key={item} />
           ))}
         </ul>
       )}
       {isAuth && (
         <>
           <h3>Leave feedback</h3>
-          <ReviewForm restaurantId={restaurant.id} />
+          <ReviewForm restaurantId={id} />
         </>
       )}
     </div>

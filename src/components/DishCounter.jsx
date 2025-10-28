@@ -1,19 +1,26 @@
-import React, { useState } from "react";
+import React, { useCallback } from "react";
 import CounterUI from "./ui/CounterUI.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  removeFromCart,
+  selectCartItemAmountById,
+} from "./redux/entities/cart/slice.jsx";
 
-function DishCounter() {
-  const [dishCount, setDishCount] = useState(0);
-  function incrementDishCount() {
-    if (dishCount !== 5) {
-      setDishCount(dishCount + 1);
-    }
-  }
+function DishCounter({ id }) {
+  const dispatch = useDispatch();
+  const dishCount =
+    useSelector((state) => selectCartItemAmountById(state, id)) || 0;
 
-  function decrementDishCount() {
-    if (dishCount !== 0) {
-      setDishCount(dishCount - 1);
-    }
-  }
+  const incrementDishCount = useCallback(
+    () => dispatch(addToCart(id)),
+    [dispatch, id],
+  );
+
+  const decrementDishCount = useCallback(
+    () => dispatch(removeFromCart(id)),
+    [dispatch, id],
+  );
   return (
     <CounterUI
       count={dishCount}
