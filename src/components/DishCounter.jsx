@@ -15,13 +15,11 @@ function DishCounter() {
     }
   }
   return (
-    <>
-      <CounterUI
-        count={dishCount}
-        decrement={decrementDishCount}
-        increment={incrementDishCount}
-      />
-    </>
+    <CounterUI
+      count={dishCount}
+      decrement={decrementDishCount}
+      increment={incrementDishCount}
+    />
   );
 }
 
