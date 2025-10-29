@@ -2,7 +2,7 @@ import React from "react";
 
 import CounterUI from "./ui/CounterUI.jsx";
 
-function Counter({ count, min, max, step, setCount }) {
+function GradeCounter({ count, min, max, step, setCount }) {
   function incrementCount() {
     if (count !== max) {
       setCount(count + step);
@@ -24,4 +24,4 @@ function Counter({ count, min, max, step, setCount }) {
   );
 }
 
-export default Counter;
+export default GradeCounter;

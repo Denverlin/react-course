@@ -1,18 +1,18 @@
 import React, { useContext, useState } from "react";
-import { restaurants } from "../data/mock.js";
+
 import styles from "../styles/RestaurantsPage.module.css";
 import InfoCard from "../InfoCard.jsx";
-import Button from "../ui/Button.jsx";
 import classNames from "classnames";
 import { ThemeContext } from "../ThemeContext.jsx";
+import { useSelector } from "react-redux";
+import { selectRestaurantsIds } from "../redux/entities/restaurants/slice.jsx";
+import RestaurantTab from "../RestaurantTab.jsx";
 
 function RestaurantsPage() {
   const { theme } = useContext(ThemeContext);
+  const restaurantsIds = useSelector(selectRestaurantsIds);
   const [selectedRestaurantId, setSelectedRestaurantId] = useState(
-    restaurants[0].id,
-  );
-  const selectedRestaurant = restaurants.find(
-    ({ id }) => id === selectedRestaurantId,
+    restaurantsIds[0],
   );
 
   function selectRestaurant(id) {
@@ -23,7 +23,7 @@ function RestaurantsPage() {
 
   return (
     <>
-      {restaurants.length === 0 ? (
+      {restaurantsIds.length === 0 ? (
         <div
           className={classNames({
             [styles.main]: theme === "light",
@@ -40,16 +40,15 @@ function RestaurantsPage() {
           })}
         >
           <div className={styles.list}>
-            {restaurants.map((restaurant) => (
-              <Button
-                className={styles.list__item}
-                onclick={() => selectRestaurant(restaurant.id)}
-                key={restaurant.id}
-                text={restaurant.name}
+            {restaurantsIds.map((id) => (
+              <RestaurantTab
+                key={id}
+                id={id}
+                onclick={() => selectRestaurant(id)}
               />
             ))}
           </div>
-          <InfoCard restaurant={selectedRestaurant}></InfoCard>
+          <InfoCard key={selectedRestaurantId} id={selectedRestaurantId} />
         </div>
       )}
     </>

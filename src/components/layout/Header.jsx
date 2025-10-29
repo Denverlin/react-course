@@ -7,7 +7,7 @@ import { AuthContext } from "../AuthContext.jsx";
 
 function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const { isAuth, authentication, name } = useContext(AuthContext);
+  const { isAuth, authenticate, name } = useContext(AuthContext);
   return (
     <div
       className={classNames({
@@ -21,10 +21,7 @@ function Header() {
           {isAuth && `Welcome, ${name}!`}
         </div>
         <div className={styles.logIn__button}>
-          <Button
-            onclick={authentication}
-            text={isAuth ? "Log Out" : "Log In"}
-          />
+          <Button onclick={authenticate} text={isAuth ? "Log Out" : "Log In"} />
         </div>
       </div>
       <div className={styles.themeButton}>
