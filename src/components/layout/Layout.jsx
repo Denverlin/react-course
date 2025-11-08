@@ -7,7 +7,7 @@ import styles from "../styles/App.module.css";
 import { ThemeContext } from "../ThemeContext.jsx";
 import { Outlet } from "react-router";
 
-function Layout({ children }) {
+function Layout() {
   const { theme } = useContext(ThemeContext);
   return (
     <div
