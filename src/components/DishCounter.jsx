@@ -5,7 +5,7 @@ import {
   addToCart,
   removeFromCart,
   selectCartItemAmountById,
-} from "./redux/entities/cart/slice.jsx";
+} from "../redux/entities/cart/slice.jsx";
 
 function DishCounter({ id }) {
   const dispatch = useDispatch();
