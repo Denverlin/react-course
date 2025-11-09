@@ -1,18 +1,10 @@
 import React from "react";
 import { Link } from "react-router";
+import styles from "../components/styles/Home.module.css";
 
 function Home() {
   return (
-    <div
-      style={{
-        paddingTop: "300px",
-        textAlign: "center",
-        fontSize: "50px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "300px",
-      }}
-    >
+    <div className={styles.welcomeScreen}>
       Welcome! <Link to={"/restaurants"}>To Restaurants</Link>
     </div>
   );

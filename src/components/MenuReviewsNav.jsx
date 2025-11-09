@@ -3,7 +3,7 @@ import Button from "./ui/Button.jsx";
 import { Link, useParams } from "react-router";
 
 function MenuReviewsNav() {
-  let params = useParams();
+  const params = useParams();
   return (
     <div>
       <Link to={`/restaurant/${params.id}/menu`}>

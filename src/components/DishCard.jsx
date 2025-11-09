@@ -7,9 +7,9 @@ import { AuthContext } from "./AuthContext.jsx";
 import style from "./styles/DishCard.module.css";
 
 function DishCard() {
-  let params = useParams();
+  const params = useParams();
   const { isAuth } = useContext(AuthContext);
-  let dish = useSelector((state) => selectDishesById(state, params.dishId));
+  const dish = useSelector((state) => selectDishesById(state, params.dishId));
 
   return (
     <div className={style.dishInfo}>

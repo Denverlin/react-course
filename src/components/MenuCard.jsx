@@ -6,7 +6,7 @@ import { Link, useParams } from "react-router";
 import MenuReviewsNav from "./MenuReviewsNav.jsx";
 
 function MenuCard() {
-  let params = useParams();
+  const params = useParams();
   const restaurant = useSelector((state) =>
     selectRestaurantsById(state, params.id),
   );

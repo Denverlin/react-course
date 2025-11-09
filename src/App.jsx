@@ -10,6 +10,7 @@ import RestaurantsPage from "./pages/RestaurantsPage.jsx";
 import MenuCard from "./components/MenuCard.jsx";
 import ReviewsCard from "./components/ReviewsCard.jsx";
 import DishCard from "./components/DishCard.jsx";
+import RestaurantPage from "./components/RestaurantPage.jsx";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                   path={"/restaurants"}
                   element={<RestaurantsPage />}
                 />
+                <Route path={"/restaurant/:id"} element={<RestaurantPage />} />
 
                 <Route
                   index

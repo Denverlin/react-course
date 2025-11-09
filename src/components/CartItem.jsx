@@ -9,7 +9,6 @@ function CartItem({ id }) {
   const dishAmount = useSelector((state) =>
     selectCartItemAmountById(state, id),
   );
-  console.log(dishAmount);
   return (
     <div key={id} className={styles.cart__item}>
       <div className={styles.cart__item__name}>{dish.name}</div>
