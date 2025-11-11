@@ -12,7 +12,7 @@ function MenuCard() {
   );
   return (
     <div>
-      <MenuReviewsNav />
+      <MenuReviewsNav id={params.id} />
       <div>
         <h3>Menu</h3>
 

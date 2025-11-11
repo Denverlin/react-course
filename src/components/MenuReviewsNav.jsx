@@ -1,17 +1,11 @@
 import React from "react";
-import Button from "./ui/Button.jsx";
-import { Link, useParams } from "react-router";
+import { Link } from "react-router";
 
-function MenuReviewsNav() {
-  const params = useParams();
+function MenuReviewsNav({ id }) {
   return (
     <div>
-      <Link to={`/restaurant/${params.id}/menu`}>
-        <Button text={"Меню"} />
-      </Link>
-      <Link to={`/restaurant/${params.id}/reviews`}>
-        <Button text={"Отзывы"} />
-      </Link>
+      <Link to={`/restaurant/${id}/menu`}>Меню</Link>
+      <Link to={`/restaurant/${id}/reviews`}>Отзывы</Link>
     </div>
   );
 }

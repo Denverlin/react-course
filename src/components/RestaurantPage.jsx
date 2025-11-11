@@ -11,7 +11,7 @@ function RestaurantPage() {
   return (
     <div>
       <div>{restaurant.name}</div>
-      <MenuReviewsNav />
+      <MenuReviewsNav id={params.id} />
     </div>
   );
 }
