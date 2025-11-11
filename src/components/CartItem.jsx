@@ -10,7 +10,7 @@ function CartItem({ id }) {
     selectCartItemAmountById(state, id),
   );
   return (
-    <div key={id} className={styles.cart__item}>
+    <div  className={styles.cart__item}>
       <div className={styles.cart__item__name}>{dish.name}</div>
       <div className={styles.cart__item__amount}>{dishAmount}</div>
     </div>
