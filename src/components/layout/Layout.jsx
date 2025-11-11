@@ -5,19 +5,23 @@ import ScrollProgress from "../ScrollProgress.jsx";
 import classNames from "classnames";
 import styles from "../styles/App.module.css";
 import { ThemeContext } from "../ThemeContext.jsx";
+import { Outlet } from "react-router";
 
-function Layout({ children }) {
+function Layout() {
   const { theme } = useContext(ThemeContext);
   return (
     <div
-      className={classNames({
-        [styles.container]: theme === "light",
-        [styles.containerDark]: theme === "dark",
+      className={classNames(styles.layout, {
+        [styles.lightTheme]: theme === "light",
+        [styles.darkTheme]: theme === "dark",
       })}
     >
       <ScrollProgress />
       <Header />
-      {children}
+      <div className={styles.container}>
+        {/*<Cart />*/}
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

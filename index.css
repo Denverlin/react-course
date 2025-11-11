@@ -1,7 +1,21 @@
-html, body, #root {
-    margin: 0;
-    height: 100%;
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
 }
-a, a:link, a:visited  {
-    text-decoration: none;
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+  color: inherit; /* Цвет ссылок становится таким же, как цвет родительского элемента */
+  background-color: transparent; /* Фон прозрачный, чтобы не выделяться */
+  cursor: pointer; /* Оставляем указатель, чтобы было понятно, что ссылка кликабельна */
+}
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+li {
+  padding: 10px 0;
 }

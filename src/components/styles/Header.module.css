@@ -2,6 +2,7 @@
   min-height: 80px;
   background-color: antiquewhite;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   padding: 0 20px;
 }
@@ -12,8 +13,12 @@
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
+  flex-direction: row;
 }
 .themeButton {
+  align-content: center;
+}
+.cartButton {
   align-content: center;
 }
 .logIn {
@@ -28,4 +33,21 @@
   align-content: center;
 }
 .logo {
+}
+.cart {
+  align-content: center;
+  display: inline-block;
+}
+
+.cart:hover .cartList {
+  display: block;
+}
+.cartList {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  min-width: 160px;
+}
+.cartButton:hover {
+  cursor: pointer;
 }

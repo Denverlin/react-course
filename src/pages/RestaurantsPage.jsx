@@ -1,12 +1,11 @@
 import React, { useContext, useState } from "react";
 
-import styles from "../styles/RestaurantsPage.module.css";
-import InfoCard from "../InfoCard.jsx";
+import styles from "../components/styles/RestaurantsPage.module.css";
 import classNames from "classnames";
-import { ThemeContext } from "../ThemeContext.jsx";
+import { ThemeContext } from "../components/ThemeContext.jsx";
 import { useSelector } from "react-redux";
 import { selectRestaurantsIds } from "../redux/entities/restaurants/slice.jsx";
-import RestaurantTab from "../RestaurantTab.jsx";
+import RestaurantTab from "../components/RestaurantTab.jsx";
 
 function RestaurantsPage() {
   const { theme } = useContext(ThemeContext);
@@ -48,7 +47,6 @@ function RestaurantsPage() {
               />
             ))}
           </div>
-          <InfoCard key={selectedRestaurantId} id={selectedRestaurantId} />
         </div>
       )}
     </>

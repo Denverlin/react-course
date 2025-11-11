@@ -1,4 +1,4 @@
-import { normalizedRestaurants } from "../../../data/normalized-mock.js";
+import { normalizedRestaurants } from "../../../components/data/normalized-mock.js";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {

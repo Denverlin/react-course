@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { normalizedReviews } from "../../../data/normalized-mock.js";
+import { normalizedReviews } from "../../../components/data/normalized-mock.js";
 
 const initialState = {
   ids: normalizedReviews.map(({ id }) => id),
