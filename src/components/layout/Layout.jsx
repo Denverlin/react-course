@@ -19,7 +19,6 @@ function Layout() {
       <ScrollProgress />
       <Header />
       <div className={styles.container}>
-        {/*<Cart />*/}
         <Outlet />
       </div>
       <Footer />

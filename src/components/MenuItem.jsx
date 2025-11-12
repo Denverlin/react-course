@@ -7,7 +7,9 @@ import { Link } from "react-router";
 
 function MenuItem({ item }) {
   const { isAuth } = useContext(AuthContext);
+
   const dish = useSelector((state) => selectDishesById(state, item));
+
   return (
     <li key={dish.id}>
       <Link to={`/dish/${dish.id}`}>{dish.name}</Link>
