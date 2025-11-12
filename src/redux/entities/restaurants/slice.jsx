@@ -1,23 +1,35 @@
-import { normalizedRestaurants } from "../../../components/data/normalized-mock.js";
-import { createSlice } from "@reduxjs/toolkit";
+import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
+import { getRestaurants } from "./get-restaurants.jsx";
+import { getRestaurantById } from "./get-restaurants-by-id.jsx";
 
-const initialState = {
-  ids: normalizedRestaurants.map(({ id }) => id),
-  entities: normalizedRestaurants.reduce((acc, restaurant) => {
-    acc[restaurant.id] = restaurant;
-    return acc;
-  }, {}),
-};
-
+const entityAdapter = createEntityAdapter();
 export const restaurantsSlice = createSlice({
   name: "restaurants",
-  initialState,
+  initialState: entityAdapter.getInitialState({ requestStatus: "idle" }),
   selectors: {
-    selectRestaurantsIds: (restaurantsState) => restaurantsState.ids,
-    selectRestaurantsById: (restaurantsState, id) =>
-      restaurantsState.entities[id],
+    selectRestaurantsIds: (state) => state.ids,
+    selectRequestStatus: (state) => state.requestStatus,
   },
+  extraReducers: (builder) =>
+    builder
+      .addCase(getRestaurants.pending, (state, action) => {
+        state.requestStatus = "pending";
+      })
+      .addCase(getRestaurants.fulfilled, (state, { payload }) => {
+        state.requestStatus = "fulfilled";
+        entityAdapter.setAll(state, payload);
+      })
+      .addCase(getRestaurants.rejected, (state) => {
+        state.requestStatus = "rejected";
+      })
+      .addCase(getRestaurantById.fulfilled, (state, { payload }) => {
+        entityAdapter.setOne(state, payload);
+      }),
 });
 
-export const { selectRestaurantsIds, selectRestaurantsById } =
+const selectRestaurantsSlice = (sate) => sate.restaurants;
+export const { selectById: selectRestaurantsById } = entityAdapter.getSelectors(
+  selectRestaurantsSlice,
+);
+export const { selectRestaurantsIds, selectRequestStatus } =
   restaurantsSlice.selectors;

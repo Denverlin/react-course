@@ -1,18 +1,18 @@
 import React from "react";
-import MenuItem from "./MenuItem.jsx";
 import { useSelector } from "react-redux";
 import { selectRestaurantsById } from "../redux/entities/restaurants/slice.jsx";
-import { Link, useParams } from "react-router";
-import MenuReviewsNav from "./MenuReviewsNav.jsx";
+import { useParams } from "react-router";
+import MenuItem from "./MenuItem.jsx";
 
 function MenuCard() {
   const params = useParams();
+
   const restaurant = useSelector((state) =>
     selectRestaurantsById(state, params.id),
   );
+
   return (
     <div>
-      <MenuReviewsNav id={params.id} />
       <div>
         <h3>Menu</h3>
 
@@ -28,7 +28,6 @@ function MenuCard() {
           </ul>
         )}
       </div>
-      <Link to={"/restaurants"}>To Restaurants</Link>
     </div>
   );
 }

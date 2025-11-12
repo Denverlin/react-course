@@ -1,18 +1,41 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import styles from "../components/styles/RestaurantsPage.module.css";
 import classNames from "classnames";
 import { ThemeContext } from "../components/ThemeContext.jsx";
-import { useSelector } from "react-redux";
-import { selectRestaurantsIds } from "../redux/entities/restaurants/slice.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectRequestStatus,
+  selectRestaurantsIds,
+} from "../redux/entities/restaurants/slice.jsx";
 import RestaurantTab from "../components/RestaurantTab.jsx";
+import { getRestaurants } from "../redux/entities/restaurants/get-restaurants.jsx";
+import { getDishes } from "../redux/entities/dishes/get-dishes.jsx";
+import { getReviews } from "../redux/entities/reviews/get-reviews.jsx";
 
 function RestaurantsPage() {
   const { theme } = useContext(ThemeContext);
+  const dispatch = useDispatch();
+
+  const requestStatus = useSelector(selectRequestStatus);
   const restaurantsIds = useSelector(selectRestaurantsIds);
   const [selectedRestaurantId, setSelectedRestaurantId] = useState(
     restaurantsIds[0],
   );
+
+  useEffect(() => {
+    dispatch(getRestaurants());
+    dispatch(getDishes());
+    dispatch(getReviews());
+  }, [dispatch]);
+
+  if (requestStatus === "pending") {
+    return "loading...";
+  }
+
+  if (requestStatus === "rejected") {
+    return "some error";
+  }
 
   function selectRestaurant(id) {
     if (selectedRestaurantId !== id) {
