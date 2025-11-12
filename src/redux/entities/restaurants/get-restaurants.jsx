@@ -3,7 +3,7 @@ import { selectRestaurantsIds } from "./slice.jsx";
 
 export const getRestaurants = createAsyncThunk(
   "restaurants/getRestaurants",
-  async (_, { rejectWithValue, dispatch, getState }) => {
+  async (_, { rejectWithValue }) => {
     const response = await fetch("http://localhost:3001/api/restaurants");
 
     const result = await response.json();

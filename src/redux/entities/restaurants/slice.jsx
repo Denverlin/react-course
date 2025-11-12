@@ -12,7 +12,7 @@ export const restaurantsSlice = createSlice({
   },
   extraReducers: (builder) =>
     builder
-      .addCase(getRestaurants.pending, (state, action) => {
+      .addCase(getRestaurants.pending, (state) => {
         state.requestStatus = "pending";
       })
       .addCase(getRestaurants.fulfilled, (state, { payload }) => {

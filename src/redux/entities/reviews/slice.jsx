@@ -12,7 +12,7 @@ export const reviewsSlice = createSlice({
   },
   extraReducers: (builder) =>
     builder
-      .addCase(getReviews.pending, (state, action) => {
+      .addCase(getReviews.pending, (state) => {
         state.requestStatus = "pending";
       })
       .addCase(getReviews.fulfilled, (state, { payload }) => {
