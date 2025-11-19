@@ -1,21 +1,33 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { normalizedReviews } from "../../../components/data/normalized-mock.js";
+import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
+import { getReviews } from "./get-reviews.jsx";
+import { getReviewById } from "./get-review-by-id.jsx";
 
-const initialState = {
-  ids: normalizedReviews.map(({ id }) => id),
-  entities: normalizedReviews.reduce((acc, review) => {
-    acc[review.id] = review;
-    return acc;
-  }, {}),
-};
-
+const entityAdapter = createEntityAdapter();
 export const reviewsSlice = createSlice({
   name: "reviews",
-  initialState,
+  initialState: entityAdapter.getInitialState({ requestStatus: "idle" }),
   selectors: {
-    selectReviewsIds: (reviewsState) => reviewsState.ids,
-    selectReviewsById: (reviewsState, id) => reviewsState.entities[id],
+    selectReviewsIds: (state) => state.ids,
+    selectRequestStatus: (state) => state.requestStatus,
   },
+  extraReducers: (builder) =>
+    builder
+      .addCase(getReviews.pending, (state) => {
+        state.requestStatus = "pending";
+      })
+      .addCase(getReviews.fulfilled, (state, { payload }) => {
+        state.requestStatus = "fulfilled";
+        entityAdapter.setAll(state, payload);
+      })
+      .addCase(getReviews.rejected, (state) => {
+        state.requestStatus = "rejected";
+      })
+      .addCase(getReviewById.fulfilled, (state, { payload }) => {
+        entityAdapter.setOne(state, payload);
+      }),
 });
 
-export const { selectReviewsIds, selectReviewsById } = reviewsSlice.selectors;
+const selectReviewsSlice = (sate) => sate.reviews;
+export const { selectById: selectReviewsById } =
+  entityAdapter.getSelectors(selectReviewsSlice);
+export const { selectReviewsIds, selectRequestStatus } = reviewsSlice.selectors;
