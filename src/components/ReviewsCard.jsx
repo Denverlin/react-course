@@ -16,17 +16,13 @@ function ReviewsCard() {
     <>
       <h3>Reviews</h3>
       {restaurant.reviews.length === 0 ? (
-        <>
-          <h2>No reviews</h2>
-        </>
+        <h2>No reviews</h2>
       ) : (
-        <>
-          <ul>
-            {restaurant.reviews.map((item) => (
-              <ReviewItem item={item} key={item} />
-            ))}
-          </ul>
-        </>
+        <ul>
+          {restaurant.reviews.map((item) => (
+            <ReviewItem item={item} key={item} />
+          ))}
+        </ul>
       )}
       {isAuth && (
         <>
